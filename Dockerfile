@@ -58,6 +58,7 @@ RUN echo "echo Starting the Full Node" >> /tron/java-tron/start.sh \
  && echo "cd /tron/java-tron" >> /tron/java-tron/start.sh  \
  && echo "tail -f -q --retry /tron/java-tron/FullNode/logs/tron.log" >> /tron/java-tron/start.sh  \
  && echo "bash" >> /tron/java-tron/start.sh  \
+ && echo "kill -s TERM `ps ax | grep FullNode.jar |grep -v grep | awk '{print $1}'`" >> /tron/java-tron/start.sh  \
  && chmod -R 777 /tron/java-tron/start.sh
 
 
