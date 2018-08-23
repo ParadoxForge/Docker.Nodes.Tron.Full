@@ -2,6 +2,8 @@ FROM centos:7
 
 #https://github.com/tronprotocol/TronDeployment
 
+ENV NETWORK "main"
+
 # Install Git, WGet, Go
 RUN set -o errexit -o nounset \
  &&	yum install git wget go -y
@@ -28,24 +30,16 @@ RUN set -o errexit -o nounset \
  
 COPY ./compiled/ /tron/
 
-CMD wget https://raw.githubusercontent.com/tronprotocol/TronDeployment/master/main_net_config.conf -O main_net_config.conf \
- && cd $GOPATH/src/github.com/tronprotocol/grpc-gateway \
- && nohup go run tron_http/main.go -listen 50052 >> start_grpc_gateway.log 2>&1 & \
- && cd /tron \
- && java -jar "FullNode.jar" -c /tron/main_net_config.conf
 
-
- 
-RUN echo "wget https://raw.githubusercontent.com/tronprotocol/TronDeployment/master/main_net_config.conf -O main_net_config.conf" >> /tron/start.sh \
- && echo "cd $GOPATH/src/github.com/tronprotocol/grpc-gateway" >> /tron/start.sh  \
+RUN echo "cd $GOPATH/src/github.com/tronprotocol/grpc-gateway" >> /tron/start.sh  \
  && echo "nohup go run tron_http/main.go -listen 50052 >> start_grpc_gateway.log 2>&1 &" >> /tron/start.sh  \
  && echo "cd /tron" >> /tron/start.sh  \
- && echo "java -jar "FullNode.jar" -c /tron/main_net_config.conf" >> /tron/start.sh  \
+ && echo "java -jar "FullNode.jar" -c /tron/net_config.conf" >> /tron/start.sh  \
  && chmod -R 777 /tron/start.sh
 
-
-
-CMD /tron/start.sh
+CMD echo "Network : $NETWORK" \
+ && wget "https://raw.githubusercontent.com/tronprotocol/TronDeployment/master/$(echo $NETWORK)_net_config.conf" -O /tron/net_config.conf \
+ && /tron/start.sh
 
 
 # RPC Port
