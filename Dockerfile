@@ -40,7 +40,8 @@ RUN echo "cd $GOPATH/src/github.com/tronprotocol/grpc-gateway" >> /tron/start.sh
 CMD echo "Network : $NETWORK" \
  && wget "https://raw.githubusercontent.com/tronprotocol/TronDeployment/master/$(echo $NETWORK)_net_config.conf" -O /tron/net_config.conf \
  && /tron/start.sh
-
+ 
+STOPSIGNAL signal
 
 # RPC Port
 EXPOSE 18888
