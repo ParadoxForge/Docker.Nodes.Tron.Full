@@ -41,7 +41,8 @@ CMD echo "Network : $NETWORK" \
  && wget "https://raw.githubusercontent.com/tronprotocol/TronDeployment/master/$(echo $NETWORK)_net_config.conf" -O /tron/net_config.conf \
  && /tron/start.sh
  
-STOPSIGNAL TERM
+# SIGINT = CTRL+C
+STOPSIGNAL SIGINT 
 
 # RPC Port
 EXPOSE 18888
