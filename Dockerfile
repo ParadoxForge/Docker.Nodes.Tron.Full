@@ -3,7 +3,7 @@ FROM centos:7
 #https://github.com/tronprotocol/TronDeployment
 
 ENV NETWORK "main"
-ENV TRON_VERSION "Odyssey-v2.0.8.1"
+ENV TRON_VERSION "Odyssey-v3.0"
 
 RUN yum install wget -y -q
 
