@@ -1,6 +1,6 @@
 # Full Tron Node in Docker
 ## Runs on CentOs 7 (will be ported to Alpine later)
-### Current Version : Odyssey-v3.1.3
+### Current Version : Odyssey-v3.2.3
 
 #### Environment Variables
 - **NETWORK**
@@ -8,13 +8,13 @@
   - Default : "main"
 
 ```
-docker run -it -d \
+docker run -it \
 --name=TronNode \
+-p 18888:18888 \
 -p 50051:50051 \
--p 50052:50052 \
 -e NETWORK="test" \
--v /nodes/tron/logs/:/tron/logs:z \
--v /nodes/tron/data/:/tron/output-directory:z \
+-v //C/B/tron/logs/:/tron/logs:z \
+-v //C/B/tron/data/:/tron/output-directory:z \
 paradoxforge/nodes.tron.full:latest
 ```
 
