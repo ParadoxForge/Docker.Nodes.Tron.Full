@@ -13,8 +13,8 @@ docker run -it \
 -p 18888:18888 \
 -p 50051:50051 \
 -e NETWORK="test" \
--v //C/B/tron/logs/:/tron/logs:z \
--v //C/B/tron/data/:/tron/output-directory:z \
+-v /nodes/tron/logs/:/tron/logs:z \
+-v /nodes/tron/data/:/tron/output-directory:z \
 paradoxforge/nodes.tron.full:latest
 ```
 
