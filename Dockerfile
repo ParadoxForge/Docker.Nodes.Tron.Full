@@ -1,7 +1,7 @@
 FROM tronprotocol/centos7-jdk8
 
 ENV TRON_NETWORK "main"
-ENV TRON_VERSION "Odyssey-v3.2.3"
+ENV TRON_VERSION "Odyssey-v3.2.4"
 
 WORKDIR /tron
 
