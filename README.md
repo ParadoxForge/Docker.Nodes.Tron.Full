@@ -1,6 +1,6 @@
 # Full Tron Node in Docker
 ## Runs on CentOs 7 (will be ported to Alpine later)
-### Current Version : Odyssey-v3.2.3
+### Current Version : Odyssey-v3.2.4
 
 #### Environment Variables
 - **NETWORK**
