@@ -1,7 +1,7 @@
 FROM tronprotocol/centos7-jdk8
 
 ENV TRON_NETWORK "main"
-ENV TRON_VERSION "Odyssey-v3.2.4"
+ENV TRON_VERSION "Odyssey-v3.5.0.1"
 
 WORKDIR /tron
 
@@ -16,5 +16,6 @@ CMD echo "Downloading Network Config [${TRON_NETWORK}]" \
 
 STOPSIGNAL SIGTERM
 
+EXPOSE 8090
 EXPOSE 18888
 EXPOSE 50051
