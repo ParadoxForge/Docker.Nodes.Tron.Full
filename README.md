@@ -17,4 +17,3 @@ docker run -it -d \
 -v /nodes/tron/data/:/tron/output-directory:z \
 paradoxforge/nodes.tron.full
 ```
-
